@@ -810,18 +810,22 @@ blend_point_8/name = &"move_down 2"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ydkj"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dovo2"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gmlin"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dovo2"]
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_je7p5")
-states/idle/position = Vector2(524, 39.25)
+states/idle/position = Vector2(467.2, 100.65)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_lgqa7")
-states/walk/position = Vector2(538.5, 176.5)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_8ydkj")]
-graph_offset = Vector2(104, -58)
+states/walk/position = Vector2(667.3, 98.78)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_8ydkj"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_dovo2"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_gmlin")]
+graph_offset = Vector2(-61, -72)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rs6ua"]
-graph_offset = Vector2(-421.07324, -25.73845)
+graph_offset = Vector2(-505.54184, 8.996387)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_dovo2")
-nodes/StateMachine/position = Vector2(-100, 80)
+nodes/StateMachine/position = Vector2(-128, 80)
 node_connections = [&"output", 0, &"StateMachine"]
 
 [node name="Player" type="CharacterBody2D" unique_id=521122558 groups=["Player"]]
