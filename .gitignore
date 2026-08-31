@@ -1,0 +1,17 @@
+# Godot 4 自动生成的缓存目录,不应提交
+.godot/
+
+# macOS 系统文件
+.DS_Store
+
+# 导出产物
+export/
+build/
+*.exe
+*.apk
+*.aab
+*.pck
+*.zip
+
+# 编辑器/IDE 文件
+*.tmp
