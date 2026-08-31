@@ -1,0 +1,40 @@
+# Godot 项目换行符规范
+# 文本文件统一使用 LF，跨平台（Windows/macOS/Linux）保持一致，
+# 避免 Git 在 CRLF/LF 之间反复转换产生大量无意义 diff。
+
+# GDScript 脚本
+*.gd text eol=lf
+
+# Godot 场景/资源文本格式
+*.tscn text eol=lf
+*.tres text eol=lf
+
+# 导入元数据（.import）与 UID 映射
+*.import text eol=lf
+*.uid text eol=lf
+
+# Godot 项目配置文件
+*.godot text eol=lf
+*.gdshader text eol=lf
+
+# 其他常见文本文件
+*.json text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+.gitignore text eol=lf
+*.svg text eol=lf
+
+# 二进制资源：禁止换行符转换与文本 diff
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.flac binary
+*.exe binary
+*.pck binary
+*.apk binary
+*.aab binary
+*.zip binary
