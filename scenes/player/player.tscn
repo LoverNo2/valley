@@ -276,7 +276,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_2l4js"]
 resource_name = "hoe_down"
-length = 0.8
+length = 0.65
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -292,7 +292,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_xhtjm"]
 resource_name = "hoe_left"
-length = 0.8
+length = 0.65
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -308,7 +308,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_k4v7y"]
 resource_name = "hoe_right"
-length = 0.8
+length = 0.65
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -324,7 +324,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_jk2m4"]
 resource_name = "hoe_up"
-length = 0.8
+length = 0.65
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 const SPEED = 100
 var direction = Vector2.ZERO
+var last_direction = Vector2.ZERO
+var h_offset = 16
+var c_offset = -14
 var is_using_tool = false
 
 enum Tools {
@@ -17,6 +20,8 @@ var current_tool = Tools.HOE
 var walk_state_machine: AnimationNodeStateMachinePlayback
 var tool_state_machine: AnimationNodeStateMachinePlayback
 
+signal tool_used(tool: Tools, pos: Vector2)
+
 
 func _ready() -> void:
 	walk_state_machine = $AnimationTree.get("parameters/MoveStateMachine/playback")
@@ -26,6 +31,8 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if not is_using_tool:
 		_get_input()
+		if direction != Vector2.ZERO:
+			last_direction = direction
 	velocity = direction * SPEED * int(!is_using_tool)
 	animation()
 	move_and_slide()
@@ -42,6 +49,12 @@ func _get_input() -> void:
 		is_using_tool = true
 		tool_state_machine.travel(tool_map[current_tool])
 		$AnimationTree.set('parameters/OneShot/request', AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		if current_tool == Tools.HOE:
+			await $AnimationTree.animation_finished
+			tool_used.emit(
+				current_tool,
+				global_position + last_direction * h_offset + Vector2(0, c_offset),
+			)
 
 
 func animation() -> void:

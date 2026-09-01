@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bf0yuue48pk6v"]
 
 [ext_resource type="PackedScene" uid="uid://ca106qafnt25o" path="res://scenes/player/player.tscn" id="1_e6yxx"]
+[ext_resource type="Script" uid="uid://b8y4q6pvx7qsq" path="res://scripts/game.gd" id="1_f2w0s"]
 [ext_resource type="Texture2D" uid="uid://baw527j36pxgi" path="res://graphics/tilesets/grass.png" id="1_pl0c8"]
 [ext_resource type="Texture2D" uid="uid://b134tjp5ngghx" path="res://graphics/tilesets/water.png" id="1_qhoho"]
 [ext_resource type="Texture2D" uid="uid://c15lysgtp52wu" path="res://graphics/tilesets/soil.png" id="2_dt6h4"]
@@ -106,6 +107,7 @@ texture = ExtResource("1_pl0c8")
 1:1/0/terrains_peering_bit/top_left_corner = 0
 1:1/0/terrains_peering_bit/top_side = 0
 1:1/0/terrains_peering_bit/top_right_corner = 0
+1:1/0/custom_data_0 = true
 2:1/0 = 0
 2:1/0/terrain_set = 0
 2:1/0/terrain = 0
@@ -328,6 +330,7 @@ texture = ExtResource("1_pl0c8")
 0:4/0/terrains_peering_bit/top_left_corner = 0
 0:4/0/terrains_peering_bit/top_side = 0
 0:4/0/terrains_peering_bit/top_right_corner = 0
+0:4/0/custom_data_0 = true
 1:4/0 = 0
 1:4/0/terrain_set = 0
 1:4/0/terrain = 0
@@ -340,6 +343,7 @@ texture = ExtResource("1_pl0c8")
 1:4/0/terrains_peering_bit/top_left_corner = 0
 1:4/0/terrains_peering_bit/top_side = 0
 1:4/0/terrains_peering_bit/top_right_corner = 0
+1:4/0/custom_data_0 = true
 2:4/0 = 0
 2:4/0/terrain_set = 0
 2:4/0/terrain = 0
@@ -352,6 +356,7 @@ texture = ExtResource("1_pl0c8")
 2:4/0/terrains_peering_bit/top_left_corner = 0
 2:4/0/terrains_peering_bit/top_side = 0
 2:4/0/terrains_peering_bit/top_right_corner = 0
+2:4/0/custom_data_0 = true
 3:4/0 = 0
 3:4/0/terrain_set = 0
 3:4/0/terrain = 0
@@ -364,6 +369,7 @@ texture = ExtResource("1_pl0c8")
 3:4/0/terrains_peering_bit/top_left_corner = 0
 3:4/0/terrains_peering_bit/top_side = 0
 3:4/0/terrains_peering_bit/top_right_corner = 0
+3:4/0/custom_data_0 = true
 4:4/0 = 0
 4:4/0/terrain_set = 0
 4:4/0/terrain = 0
@@ -414,6 +420,8 @@ texture = ExtResource("1_pl0c8")
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "main"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+custom_data_layer_0/name = "usable"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_dt6h4")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qhoho"]
@@ -812,11 +820,11 @@ sources/0 = SubResource("TileSetAtlasSource_qhoho")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2w0s"]
 texture = ExtResource("4_fq6ga")
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 2.0773678, 4.2536583, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, 2.5719795, -4.0558147, -1.4838352, 8, -1.4838352, 8, 8)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.2644367, -8, -8, 8, -8, 8, -3.2644367)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -0.09892273, -8, -1.8795242, 8, -1.978445, 8, -0.29676628)
 2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -4.74827, -8, 8, 3.7590466, 8, 8, -8, 8)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -1.8795242, 1.7806015, -1.8795242, 8, 4.352581, 8, 8)
 3:0/0 = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:0/0 = 0
@@ -842,6 +850,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_f2w0s")
 
 [node name="Game" type="Node2D" unique_id=1669496749]
+script = ExtResource("1_f2w0s")
 
 [node name="Layers" type="Node2D" parent="." unique_id=515243907]
 
@@ -874,3 +883,5 @@ position = Vector2(-29, 58)
 
 [node name="Tree3" parent="Objects" unique_id=493074879 instance=ExtResource("5_qrcxb")]
 position = Vector2(-110, 57)
+
+[connection signal="tool_used" from="Objects/Player" to="." method="_on_player_tool_used"]
