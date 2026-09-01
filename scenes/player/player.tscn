@@ -1010,7 +1010,7 @@ states/hoe/position = Vector2(837.5, -94.5)
 states/water/node = SubResource("AnimationNodeBlendSpace2D_ttakn")
 states/water/position = Vector2(835.125, 261)
 transitions = ["Start", "axe", SubResource("AnimationNodeStateMachineTransition_lvxji"), "axe", "hoe", SubResource("AnimationNodeStateMachineTransition_p47bc"), "hoe", "axe", SubResource("AnimationNodeStateMachineTransition_75vfm"), "hoe", "water", SubResource("AnimationNodeStateMachineTransition_0owmy"), "water", "hoe", SubResource("AnimationNodeStateMachineTransition_qek5x"), "water", "axe", SubResource("AnimationNodeStateMachineTransition_5gtgg"), "axe", "water", SubResource("AnimationNodeStateMachineTransition_h17s1"), "axe", "End", SubResource("AnimationNodeStateMachineTransition_je7p5"), "water", "End", SubResource("AnimationNodeStateMachineTransition_fm80t"), "hoe", "End", SubResource("AnimationNodeStateMachineTransition_gx1jg")]
-graph_offset = Vector2(274.06488, 22.289963)
+graph_offset = Vector2(366.06488, 112.28996)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rs6ua"]
 graph_offset = Vector2(-444.50507, 166.24556)
