@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-const SPEED = 100
-var direction = Vector2.ZERO
-var last_direction = Vector2.ZERO
-var h_offset = 16
-var c_offset = -14
-var is_using_tool = false
+const SPEED: float = 100.0
+var direction: Vector2 = Vector2.ZERO
+var last_direction: Vector2 = Vector2.ZERO
+var h_offset: int = 16
+var c_offset: int = -14
+var is_using_tool: bool = false
 
 enum Tools {
 	HOE,
@@ -13,19 +13,18 @@ enum Tools {
 	WATER,
 }
 
-var tool_map = { Tools.HOE: "hoe", Tools.AXE: "axe", Tools.WATER: "water" }
+var tool_map: Dictionary = { Tools.HOE: "hoe", Tools.AXE: "axe", Tools.WATER: "water" }
 
-var current_tool = Tools.HOE
+var current_tool: Tools = Tools.HOE
 
-var walk_state_machine: AnimationNodeStateMachinePlayback
-var tool_state_machine: AnimationNodeStateMachinePlayback
+@onready var walk_state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get(
+	"parameters/MoveStateMachine/playback"
+)
+@onready var tool_state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get(
+	"parameters/ToolStateMachine/playback"
+)
 
 signal tool_used(tool: Tools, pos: Vector2)
-
-
-func _ready() -> void:
-	walk_state_machine = $AnimationTree.get("parameters/MoveStateMachine/playback")
-	tool_state_machine = $AnimationTree.get("parameters/ToolStateMachine/playback")
 
 
 func _physics_process(_delta: float) -> void:
@@ -42,7 +41,7 @@ func _get_input() -> void:
 	direction = Input.get_vector("left", "right", "up", "down")
 
 	if Input.is_action_just_pressed("tool_pre") || Input.is_action_just_pressed("tool_next"):
-		var tool_delta = 1 if Input.is_action_just_pressed("tool_next") else -1
+		var tool_delta: int = 1 if Input.is_action_just_pressed("tool_next") else -1
 		current_tool = posmod(current_tool + tool_delta, Tools.size()) as Tools
 
 	if Input.is_action_just_pressed('action'):
