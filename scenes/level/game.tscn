@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c15lysgtp52wu" path="res://graphics/tilesets/soil.png" id="2_dt6h4"]
 [ext_resource type="Texture2D" uid="uid://dcwcdle3cjkv6" path="res://graphics/tilesets/hills.png" id="4_fq6ga"]
 [ext_resource type="PackedScene" uid="uid://k0dyult57sw0" path="res://scenes/tree.tscn" id="5_qrcxb"]
+[ext_resource type="Texture2D" uid="uid://byfag0kgqavgo" path="res://graphics/tilesets/soil_water.png" id="6_3ny2s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qrcxb"]
 texture = ExtResource("1_qhoho")
@@ -508,6 +509,7 @@ texture = ExtResource("2_dt6h4")
 1:1/0/terrains_peering_bit/top_left_corner = 0
 1:1/0/terrains_peering_bit/top_side = 0
 1:1/0/terrains_peering_bit/top_right_corner = 0
+1:1/0/custom_data_0 = true
 2:1/0 = 0
 2:1/0/terrain_set = 0
 2:1/0/terrain = 0
@@ -815,6 +817,8 @@ texture = ExtResource("2_dt6h4")
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "main"
 terrain_set_0/terrain_0/color = Color(0.67694, 2.0792484e-05, 0.49027193, 1)
+custom_data_layer_0/name = "usable"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_qhoho")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2w0s"]
@@ -849,6 +853,15 @@ physics_layer_0/collision_layer = 8
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_f2w0s")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ig4jx"]
+texture = ExtResource("6_3ny2s")
+
+[sub_resource type="TileSet" id="TileSet_iyxrx"]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0, 0.4594847, 0.30760777, 1)
+sources/0 = SubResource("TileSetAtlasSource_ig4jx")
+
 [node name="Game" type="Node2D" unique_id=1669496749]
 script = ExtResource("1_f2w0s")
 
@@ -869,6 +882,9 @@ tile_set = SubResource("TileSet_w0mmh")
 [node name="HillLayer" type="TileMapLayer" parent="Layers" unique_id=784586190]
 tile_map_data = PackedByteArray("AAD8//z/AAAAAAEAAAD8//3/AAAAAAIAAAD9//z/AAABAAEAAAD9//3/AAABAAIAAAD+//z/AAADAAEAAAD+//3/AAADAAIAAAD///z/AAAEAAEAAAD///3/AAABAAIAAAAAAPz/AAACAAEAAAAAAP3/AAACAAIAAAD8//v/AAAAAAEAAAD9//v/AAABAAEAAAD///v/AAAEAAAAAAAAAPv/AAACAAEAAAD+//v/AAADAAAAAAD8//r/AAAAAAAAAAD9//r/AAABAAAAAAAAAPr/AAACAAAAAAD+//r/AAABAAAAAAD///r/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_qrcxb")
+
+[node name="SoilLayer" type="TileMapLayer" parent="Layers" unique_id=1237851469]
+tile_set = SubResource("TileSet_iyxrx")
 
 [node name="Objects" type="Node2D" parent="." unique_id=1440951046]
 y_sort_enabled = true

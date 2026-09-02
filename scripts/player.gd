@@ -48,12 +48,11 @@ func _get_input() -> void:
 		is_using_tool = true
 		tool_state_machine.travel(tool_map[current_tool])
 		$AnimationTree.set('parameters/OneShot/request', AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-		if current_tool == Tools.HOE:
-			await $AnimationTree.animation_finished
-			tool_used.emit(
-				current_tool,
-				global_position + last_direction * h_offset + Vector2(0, c_offset),
-			)
+		await $AnimationTree.animation_finished
+		tool_used.emit(
+			current_tool,
+			global_position + last_direction * h_offset + Vector2(0, c_offset),
+		)
 
 
 func animation() -> void:
